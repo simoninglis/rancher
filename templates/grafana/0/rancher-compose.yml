@@ -3,6 +3,12 @@ version: '2'
   name: Grafana
   version: v0.5
   description: Graphing and dashboards
+  questions:
+    - variable: INFLUXDB_HOST
+      label: INFLUXDB_HOST
+      required: true
+      default: influxdb
+      type: string
 services:
   grafana:
     scale: 1
