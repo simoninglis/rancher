@@ -23,6 +23,11 @@ version: '2'
       label: "PLEX_ADVERTISE_IP"
       description: URL to advertise this server available on (ie. via Plex internet name service)
       default: http://172.16.4.14:32400
+    - variable: "PLEX_ALLOWED_NETWORKS"
+      type: "string"
+      label: "PLEX_ALLOWED_NETWORKS"
+      description: IP/Netmaqks entries comma seperated to allow access to the server without requiring auth
+      default: 172.16.4.0/255.255.255.0
 services:
   plex:
     scale: 1
