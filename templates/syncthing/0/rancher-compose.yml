@@ -1,0 +1,20 @@
+version: '2'
+.catalog:
+  name: Syncthing
+  version: v0.5
+  description: Syncthing file sync service
+  questions:
+    - variable: "SYNCTHING_UID"
+      type: "string"
+      label: "SYNCTHING_UID"
+      description: Syncthing Unix user ID to assume .  Defaults to 'nobody'
+      default: 65534
+    - variable: "SYNCTHING_GID"
+      type: "string"
+      label: "SYNCTHING_GID"
+      description: Syncthing Unix group ID to assume.  Defaults to 'nobody'
+      default: 65534
+services:
+  sync:
+    scale: 1
+    start_on_create: true
