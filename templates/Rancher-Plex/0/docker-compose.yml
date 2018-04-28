@@ -9,20 +9,21 @@ services:
     ports:
       - ${PORT}
     volumes:
-      - ${PATHCONFIG}:/config
-      - ${PATHMEDIA}:/data
+      - plex-config:/config
+      - media:/data
     network_mode: ${NET}
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
 volumes:
-  data:
+  plex-config:
     driver: rancher-nfs
-    diver_opts:
-      host: 172.16.4.6
-      exportBase: /mnt/media/media
-  config:
-    driver: rancher-nfs
-    diver_opts:
+    driver_opts:
       host: 172.16.4.6
       exportBase: /mnt/media/containers/plex-config
+  media:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      exportBase: /mnt/media/media
+
