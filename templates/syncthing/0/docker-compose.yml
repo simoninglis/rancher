@@ -10,7 +10,7 @@ services:
       - '8384:8384/tcp'
     volumes:
       - sync-config:/config
-      - media-downloads:/downloads
+      - media-downloads:/mnt/Download
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
