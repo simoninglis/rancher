@@ -1,6 +1,6 @@
 version: '2'
 services:
-  plex:
+  sonarr:
     image: linuxserver/sonarr
     environment:
       - TZ=Australia/Brisbane
