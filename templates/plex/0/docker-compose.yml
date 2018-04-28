@@ -23,7 +23,7 @@ services:
     volumes:
       - plex-config:/config
       - media:/data
-    network_mode: ${NET}
+    network_mode: host
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
