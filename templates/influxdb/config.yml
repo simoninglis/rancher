@@ -1,0 +1,7 @@
+name: influxdb
+description: Influx DB
+version: 0
+category: Database
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/influxdb

@@ -1,0 +1,25 @@
+version: '2'
+services:
+  lb:
+    image: rancher/lb-service-haproxy:v0.6.2
+    ports:
+    - '8086:8086/tcp'
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
+  influxdb:
+    image: influxdb:1.2.2-alpine
+    stdin_open: true
+    tty: true
+    volumes:
+      - influx-data: /var/lib/influx
+    labels:
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.hostname_override: container_name
+volumes:
+  influx-data:
+     driver_opts:
+       export: /mnt/media/containers/influx-data
+       host: 172.16.4.6
+       onRemove: retain
+     driver: rancher-nfs
