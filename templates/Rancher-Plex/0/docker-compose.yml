@@ -1,0 +1,51 @@
+version: '2'
+services:
+  plex:
+    image: plexinc/pms-docker:$plex_tag
+    environment:
+      TZ: $time_zone
+      PLEX_CLAIM: $prize_claim
+    volumes:
+    - config:/config:nocopy
+    - transcode:/transcode:nocopy
+    - data:/data:nocopy
+    network_mode: host
+    ports:
+    - 32400:32400/tcp
+    - 3005:3005/tcp
+    - 8324:8324/tcp
+    - 32469:32469/tcp
+    - 1900:1900/udp
+    - 32410:32410/udp
+    - 32412:32412/udp
+    - 32413:32413/udp
+    - 32414:32414/udp
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.sidekicks: plex-data
+    volumes_from: 
+    - plex-data
+  plex-data:
+    image: plexinc/pms-docker:$plex_tag
+    labels:
+      io.rancher.container.start_once: 'true'
+    volumes:
+    - config:/config:nocopy
+    - transcode:/transcode:nocopy
+    - data:/data:nocopy  
+volumes:
+  data:
+    driver_opts:
+      export: /media/media
+      host: 172.16.4.6
+    driver: rancher-nfs
+  transcode:
+    driver_opts:
+      exportBase: /media/containers/plex-transcode
+      host: 172.16.4.6
+    driver: rancher-nfs
+  config:
+    driver_opts:
+      export: /media/containers/plex-config
+      host: 172.16.4.6
+    driver: rancher-nfs

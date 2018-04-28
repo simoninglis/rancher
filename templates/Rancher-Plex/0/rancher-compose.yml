@@ -1,0 +1,43 @@
+.catalog:
+  name: "Plex"
+  version: "v1.0"
+  description: "Plex Media Server"
+  uuid: plex-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: time_zone
+      description: "Enter your Timeszone"
+      label: "Time Zone"
+      required: true
+      default: "Austrlia/Brisbane"
+      type: "string"
+    - variable: volume_driver
+      description: "Volume driver to use with this service"
+      label: "Volume driver"
+      required: true
+      default: "local"
+      type: enum
+      options:
+        - local
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+    - variable: plex_tag
+      description: "Plex Version"
+      label: "Plex Docker Tag"
+      required: true
+      default: "plexpass"
+      type: enum
+      options:
+        - latest
+        - plexpass
+        - public
+        - 1.9.4.4325-1bf240a65
+    - variable: prize_claim
+      description: "Visit http://plex.tv/claim to get a prize claim code, then enter it here."
+      label: "Prize Claim"
+      required: false
+      default: "CLAIM-xxxxxxxxxxxxxxxxxxx"
+      type: "string"
+plex:
+
