@@ -1,0 +1,7 @@
+name: Rancher-Plex
+description: Plex Media Server
+version: 0
+category: Media
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/Rancher-Plex
