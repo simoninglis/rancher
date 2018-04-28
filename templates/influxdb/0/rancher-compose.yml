@@ -1,4 +1,8 @@
 version: '2'
+.catalog:
+  name: Influx DB
+  version: v0.5
+  description: Influx timeseries database
 services:
   lb:
     scale: 1
