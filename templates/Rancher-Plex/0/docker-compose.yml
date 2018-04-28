@@ -36,16 +36,16 @@ services:
 volumes:
   data:
     driver_opts:
-      export: /media/media
+      export: /mnt/media/media
       host: 172.16.4.6
     driver: rancher-nfs
   transcode:
     driver_opts:
-      exportBase: /media/containers/plex-transcode
+      exportBase: /mnt/media/containers/plex-transcode
       host: 172.16.4.6
     driver: rancher-nfs
   config:
     driver_opts:
-      export: /media/containers/plex-config
+      export: /mnt/media/containers/plex-config
       host: 172.16.4.6
     driver: rancher-nfs
