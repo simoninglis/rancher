@@ -1,43 +1,45 @@
+version: '2'
 .catalog:
-  name: "Plex"
-  version: "v1.0"
-  description: "Plex Media Server"
-  uuid: plex-0
-  minimum_rancher_version: v0.51.0
+  name: Plex Server
+  version: v0.5
+  description: Plex Media Server
   questions:
-    - variable: time_zone
-      description: "Enter your Timeszone"
-      label: "Time Zone"
-      required: true
-      default: "Austrlia/Brisbane"
+    - variable: "PORT"
       type: "string"
-    - variable: volume_driver
-      description: "Volume driver to use with this service"
-      label: "Volume driver"
-      required: true
-      default: "local"
+      label: "PORT"
+      description: Frontend Port of Plex external:internal
+      default: 32400:32400
+    - variable: "PATHCONFIG"
+      type: "string"
+      label: "Config Path"
+      description: persistang Path to your Plex Config (/home/nick/plex, ...); use "config" as "Config Path" to use rancher-nfs
+      default: 'config'
+    - variable: "PATHMEDIA"
+      type: "string"
+      label: "Media Path"
+      description: the Path to your library (/media, or a nfs mount /mnt, ...)
+      default: '/media'
+    - variable: "PUID"
+      type: "string"
+      label: "PUID"
+      description: GroupID (not required)
+      default: 1100
+    - variable: "PGID"
+      type: "string"
+      label: "PGID"
+      description: PGID (not required)
+      default: 1100
+    - variable: NET
+      description: "select Network type"
+      label: "Network"
       type: enum
       options:
-        - local
-        - rancher-nfs
-        - rancher-efs
-        - rancher-ebs
-    - variable: plex_tag
-      description: "Plex Version"
-      label: "Plex Docker Tag"
+        - host
+        - managed
+        - none
       required: true
-      default: "plexpass"
-      type: enum
-      options:
-        - latest
-        - plexpass
-        - public
-        - 1.9.4.4325-1bf240a65
-    - variable: prize_claim
-      description: "Visit http://plex.tv/claim to get a prize claim code, then enter it here."
-      label: "Prize Claim"
-      required: false
-      default: "CLAIM-xxxxxxxxxxxxxxxxxxx"
-      type: "string"
-plex:
-
+      default: "host"
+services:
+  plex:
+    scale: 1
+    start_on_create: true
