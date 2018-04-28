@@ -4,41 +4,20 @@ version: '2'
   version: v0.5
   description: Plex Media Server
   questions:
-    - variable: "PORT"
+    - variable: "PLEX_UID"
       type: "string"
-      label: "PORT"
-      description: Frontend Port of Plex external:internal
-      default: 32400:32400
-    - variable: "PATHCONFIG"
+      label: "PLEX_UID"
+      description: Plex Unix user ID to assume .  Defaults to 'nobody'
+      default: 65534
+    - variable: "PLEX_GID"
       type: "string"
-      label: "Config Path"
-      description: persistang Path to your Plex Config (/home/nick/plex, ...); use "config" as "Config Path" to use rancher-nfs
-      default: 'config'
-    - variable: "PATHMEDIA"
+      label: "PLEX_GID"
+      description: Plex Unix group ID to assume.  Defaults to 'nobody'
+      default: 65534
+    - variable: "PLEX_CLAIM"
       type: "string"
-      label: "Media Path"
-      description: the Path to your library (/media, or a nfs mount /mnt, ...)
-      default: '/media'
-    - variable: "PUID"
-      type: "string"
-      label: "PUID"
-      description: GroupID (not required)
-      default: 1100
-    - variable: "PGID"
-      type: "string"
-      label: "PGID"
-      description: PGID (not required)
-      default: 1100
-    - variable: NET
-      description: "select Network type"
-      label: "Network"
-      type: enum
-      options:
-        - host
-        - managed
-        - none
-      required: true
-      default: "host"
+      label: "PLEX_CLAIM"
+      description: Plex server claim token.   Go to https://www.plex.tv/claim/ to get the token.
 services:
   plex:
     scale: 1
