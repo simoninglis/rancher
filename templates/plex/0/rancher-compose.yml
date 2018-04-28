@@ -18,6 +18,11 @@ version: '2'
       type: "string"
       label: "PLEX_CLAIM"
       description: Plex server claim token.   Go to https://www.plex.tv/claim/ to get the token.
+    - variable: "PLEX_ADVERTISE_IP"
+      type: "string"
+      label: "PLEX_ADVERTISE_IP"
+      description: URL to advertise this server available on (ie. via Plex internet name service)
+      default: http://172.16.4.14:32400
 services:
   plex:
     scale: 1

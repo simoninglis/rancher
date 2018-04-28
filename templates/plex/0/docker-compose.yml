@@ -3,10 +3,12 @@ services:
   plex:
     image: plexinc/pms-docker
     environment:
+      - TZ=Australia/Brisbane
       - PLEX_UID=${PLEX_UID}
       - PLEX_GID=${PLEX_GID}
       - PLEX_CHANGE_CONFIG_DIR_OWNERSHIP=false
       - PLEX_CLAIM=${PLEX_CLAIM}
+      - ADVERTISE_IP=${PLEX_ADVERTISE_IP}
     ports:
       - '32400:32400/tcp'
       - '3005:3005/tcp'
