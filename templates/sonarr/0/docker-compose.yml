@@ -1,7 +1,7 @@
 version: '2'
 services:
   plex:
-    image: plexinc/pms-docker
+    image: linuxserver/sonarr
     environment:
       - TZ=Australia/Brisbane
       - UID=${SONARR_UID}
