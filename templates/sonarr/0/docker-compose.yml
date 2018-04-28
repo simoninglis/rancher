@@ -12,7 +12,6 @@ services:
       - sonarr-config:/config
       - media-tv:/media/TV
       - media-downloads:/downloads
-    network_mode: host
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
