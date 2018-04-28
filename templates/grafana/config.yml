@@ -1,0 +1,7 @@
+name: grafana
+description: Grafana
+version: 0
+category: Dashboard
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/grafana
