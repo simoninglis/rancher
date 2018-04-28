@@ -1,0 +1,37 @@
+version: '2'
+services:
+  plex:
+    image: plexinc/pms-docker
+    environment:
+      - TZ=Australia/Brisbane
+      - UID=${SONARR_UID}
+      - GID=${SONARR_GID}
+    ports:
+      - '8989:8989/tcp'
+    volumes:
+      - sonarr-config:/config
+      - media-tv:/media/TV
+      - media-downloads:/downloads
+    network_mode: host
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+volumes:
+  sonarr-config:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/sonarr-config
+      onRemove: retain
+  media-tv:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/media/TV
+      onRemove: retain
+  media-downloads:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/media/Downloads
+

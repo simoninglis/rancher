@@ -1,0 +1,20 @@
+version: '2'
+.catalog:
+  name: Plex Server
+  version: v0.5
+  description: Plex Media Server
+  questions:
+    - variable: "SONARR_UID"
+      type: "string"
+      label: "SONARR_UID"
+      description: Plex Unix user ID to assume .  Defaults to 'nobody'
+      default: 65534
+    - variable: "SONARR_GID"
+      type: "string"
+      label: "SONARR_GID"
+      description: Plex Unix group ID to assume.  Defaults to 'nobody'
+      default: 65534
+services:
+  sonarr:
+    scale: 1
+    start_on_create: true
