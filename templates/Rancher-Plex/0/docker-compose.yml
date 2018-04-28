@@ -29,12 +29,12 @@ volumes:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
-      exportBase: /mnt/media/containers/plex-config
+      export: /mnt/media/containers/plex-config
       onRemove: retain
   media:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
-      exportBase: /mnt/media/media
+      export: /mnt/media/media
       onRemove: retain
 
