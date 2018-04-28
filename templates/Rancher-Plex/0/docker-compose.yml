@@ -11,6 +11,7 @@ services:
     volumes:
       - plex-config:/config
       - media:/data
+      - /var/run/rancher/storage/rancher-nfs.sock
     network_mode: ${NET}
     labels:
       io.rancher.container.pull_image: always
