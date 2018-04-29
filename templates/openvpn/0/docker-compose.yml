@@ -20,5 +20,4 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/openvpn-config
       onRemove: retain
-      export: /mnt/media/media/Downloads
 
