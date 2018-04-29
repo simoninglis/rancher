@@ -1,4 +1,4 @@
-versio: '2'
+version: '2'
 .catalog:
   name: OpenVPN
   version: v0.5
