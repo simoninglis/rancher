@@ -1,0 +1,7 @@
+name: OpenVPN
+description: OpenVPN 
+version: 0
+category: Media
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/openvpn

@@ -1,0 +1,20 @@
+versio: '2'
+.catalog:
+  name: OpenVPN
+  version: v0.5
+  description: OpenVPN VPN service
+  questions:
+    - variable: "OPENVPN_UID"
+      type: "string"
+      label: "OPENVPN_UID"
+      description: OpenVPN Unix user ID to assume .  Defaults to 'nobody'
+      default: 65534
+    - variable: "OPENVPN_GID"
+      type: "string"
+      label: "OPENVPN_GID"
+      description: OpenVPN Unix group ID to assume.  Defaults to 'nobody'
+      default: 65534
+services:
+  sync:
+    scale: 1
+    start_on_create: true

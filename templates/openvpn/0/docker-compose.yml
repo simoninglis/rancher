@@ -1,0 +1,24 @@
+version: '2'
+services:
+  openvpn:
+    image: kylemanna/openvpn
+    environment:
+      - TZ=Australia/Brisbane
+      - UID=${OPENVPN_UID}
+      - GID=${OPENVPN_GID}
+    ports:
+      - '1194:1194/udp'
+    volumes:
+      - openvpn-config:/etc/openvpn
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+volumes:
+  openvpn-config:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/openvpn-config
+      onRemove: retain
+      export: /mnt/media/media/Downloads
+
