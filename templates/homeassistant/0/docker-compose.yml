@@ -1,7 +1,7 @@
 version: '2'
 services:
   homeassistant:
-    image: homeassistant/homeassistant
+    image: homeassistant/home-assistant
     privileged: true
     environment:
       - TZ=Australia/Brisbane
