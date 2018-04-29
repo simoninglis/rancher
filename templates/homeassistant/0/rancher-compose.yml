@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: HomeAssistant
+  version: v0.5
+  description: Home automation 
+services:
+  homeassistant:
+    scale: 1
+    start_on_create: true

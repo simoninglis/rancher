@@ -1,0 +1,7 @@
+name: Home Assistant
+description: Home Assistant 
+version: 0
+category: Networking
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/homeassistant
