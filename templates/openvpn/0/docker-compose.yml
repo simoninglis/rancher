@@ -2,6 +2,8 @@ version: '2'
 services:
   openvpn:
     image: kylemanna/openvpn
+    cap_add:
+      - NET_ADMIN
     environment:
       - TZ=Australia/Brisbane
       - UID=${OPENVPN_UID}
