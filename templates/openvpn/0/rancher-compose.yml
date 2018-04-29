@@ -15,6 +15,6 @@ versio: '2'
       description: OpenVPN Unix group ID to assume.  Defaults to 'nobody'
       default: 65534
 services:
-  sync:
+  openvpn:
     scale: 1
     start_on_create: true
