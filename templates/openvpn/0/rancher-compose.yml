@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: OpenVPN
-  version: v0.5
+  version: v0.6
   description: OpenVPN VPN service
   questions:
     - variable: "OPENVPN_UID"
