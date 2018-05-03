@@ -20,8 +20,8 @@ services:
     image: acockburn/appdaemon:latest 
     environment:
       - TZ=Australia/Brisbane
-      - HA_URL=${HA_URL}
-      - HA_KEY=${HA_KEY}
+      - HA_URL={ HA_URL }
+      - HA_KEY={ HA_KEY }
     volumes:
       - homeassistant-appdaemon:/config
     labels:
