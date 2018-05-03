@@ -3,17 +3,6 @@ version: '2'
   name: HomeAssistant
   version: latest
   description: Home automation 
-  questions:
-    - variable: "HA_URL"
-      type: "string"
-      label: "HA_URL"
-      description: HomeAssistant URL for AppDaemon
-      default: "http://homeassistant.homeassistant:8132"
-    - variable: "HA_KEY"
-      type: "string"
-      label: "HA_KEY"
-      description: HomeAssistant API key for AppDaemon
-      default: 
 services:
   homeassistant:
     scale: 1
