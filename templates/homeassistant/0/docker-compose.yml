@@ -20,7 +20,7 @@ services:
     image: acockburn/appdaemon:latest 
     environment:
       - TZ=Australia/Brisbane
-      - HA_URL="http://homeassistant.homeassistant:8123"    
+      - HA_URL="http://homeassistant:8123"    
     volumes:
       - homeassistant-appdaemon:/config
 
