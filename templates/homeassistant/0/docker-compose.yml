@@ -20,9 +20,12 @@ services:
     image: acockburn/appdaemon:latest 
     environment:
       - TZ=Australia/Brisbane
-      - HA_URL="http://homeassistant:8123"    
     volumes:
       - homeassistant-appdaemon:/config
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity: "ha"
 
 volumes:
   homeassistant-config:
