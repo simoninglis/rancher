@@ -7,3 +7,7 @@ services:
   homeassistant:
     scale: 1
     start_on_create: true
+  appdaemon:
+    scale: 1
+    start_on_create: true
+
