@@ -7,6 +7,8 @@ services:
       - TZ=Australia/Brisbane
     ports:
       - '8123:8123/tcp'
+      - '51827:51827/tcp'
+      - '51827:51827/udp'
     devices:
       - "/dev/ttyACM0:/dev/ttyACM0"
       - "/dev/ttyACM1:/dev/ttyACM1"
