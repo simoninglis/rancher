@@ -7,6 +7,13 @@ services:
       - TZ=Australia/Brisbane
     ports:
       - '8123:8123/tcp'
+      - '554:554/tcp'
+      - '554:554/udp'
+      - '1900:1900/udp'
+      - '3689:3689/tcp'
+      - '5350:5350/udp'
+      - '5351:5351/udp'
+      - '5353:5353/udp'
       - '51827:51827/tcp'
       - '51827:51827/udp'
     devices:
