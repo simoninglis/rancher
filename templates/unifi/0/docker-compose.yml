@@ -13,6 +13,8 @@ services:
       - "6789:6789" 
     environment:
       - TZ="Australia/Brisbane"
+      - PUID=65534
+      - PGID=65534
     volumes:
       - unifi-config:/config
 volumes:
