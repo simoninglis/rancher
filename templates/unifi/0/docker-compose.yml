@@ -1,6 +1,6 @@
 version: '2'
 services:
-  influxdb:
+  unifi:
     image: linuxserver/unifi
     ports:
       - "3478:3478/udp"
