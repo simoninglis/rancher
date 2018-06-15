@@ -1,7 +1,7 @@
 version: '2'
 services:
   unifi:
-    image: linuxserver/unifi:stable
+    image: jacobalberty/unifistable
     ports:
       - "8080:8080" 
       - "8443:8443" 
