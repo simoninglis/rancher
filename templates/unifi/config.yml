@@ -1,0 +1,7 @@
+name: unifi
+description: Unifi
+version: 0
+category: Network
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/unifi
