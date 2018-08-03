@@ -14,6 +14,14 @@ services:
       - TZ="Australia/Brisbane"
     volumes:
       - unifi-data:/unifi
+  unms:
+    image: oznu/unms:latest  
+    restart: always
+    ports:
+      - 8081:80
+      - 8444:443
+    environment:
+      - TZ=Australia/Brisbane
 volumes:
   unifi-data:
      driver_opts:
