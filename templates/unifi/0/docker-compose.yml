@@ -22,6 +22,9 @@ services:
       - 8444:443
     environment:
       - TZ=Australia/Brisbane
+      - PUBLIC_HTTPS_PORT=8444
+      - PUBLIC_WS_PORT=8444
+      - SECURE_LINK_SECRET=cUeWqR3u3Wi7lJRTokahEjpG
 volumes:
   unifi-data:
      driver_opts:
