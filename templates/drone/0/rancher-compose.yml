@@ -4,7 +4,7 @@ version: '2'
   version: latest
   description: Drone CI/CD
 services:
-  drone:
+  drone-server:
     scale: 1
     start_on_create: true
     health_check:
