@@ -7,8 +7,6 @@ services:
       - 2222:22
     volumes:
       - gitea-data:/data
-    links:
-      - db:db
 volumes:
   gitea-data:
     driver: rancher-nfs
