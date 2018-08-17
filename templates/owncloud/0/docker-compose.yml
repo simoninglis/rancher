@@ -1,0 +1,13 @@
+version: '2'
+services:
+  grafana:
+    image: owncloud
+    ports:
+      - "8089:80"
+    environment:
+      - TZ="Australia/Brisbane"
+
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
