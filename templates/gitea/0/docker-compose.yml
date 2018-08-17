@@ -11,8 +11,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
       MYSQL_DATABASE: 'gitea'
-    volumes:
-      - gitea-db:/var/lib/mysql
 volumes:
   gitea-data:
     driver: rancher-nfs
