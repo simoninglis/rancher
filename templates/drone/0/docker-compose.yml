@@ -11,7 +11,7 @@ services:
     environment:
       - TZ="Australia/Brisbane"
       - DRONE_OPEN=true
-      - DRONE_HOST=172.16.4.16
+      - DRONE_HOST=http://172.16.4.16:8087
       - DRONE_GITEA=true
       - DRONE_GITEA_URL=http://172.16.4.16:3000
       - DRONE_SECRET=abcd12345
