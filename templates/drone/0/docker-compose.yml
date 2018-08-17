@@ -1,7 +1,7 @@
 version: '2'
 services:
   drone-server:
-    image: drone/drone:latest
+    image: drone/drone
     ports:
       - 8087:8000
       - 9000
@@ -17,7 +17,7 @@ services:
       - DRONE_SECRET=abcd12345
 
   drone-agent:
-    image: drone/agent:latest
+    image: drone/agent
     command: agent
     restart: always
     depends_on:
