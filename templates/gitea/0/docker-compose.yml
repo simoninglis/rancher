@@ -12,10 +12,10 @@ services:
   db:
     image: mariadb:10
     environment:
-      - MYSQL_ROOT_PASSWORD: 'gitea'
-      - MYSQL_USER: 'gitea'
-      - MYSQL_PASSWORD: 'gitea'
-      - MYSQL_DATABASE: 'gitea'
+      - MYSQL_ROOT_PASSWORD='gitea'
+      - MYSQL_USER='gitea'
+      - MYSQL_PASSWORD='gitea'
+      - MYSQL_DATABASE='gitea'
 volumes:
   gitea-data:
     driver: rancher-nfs
