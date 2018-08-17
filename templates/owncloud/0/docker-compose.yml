@@ -1,6 +1,6 @@
 version: '2'
 services:
-  grafana:
+  owncloud:
     image: owncloud
     ports:
       - "8089:80"
