@@ -9,13 +9,6 @@ services:
       - gitea-data:/data
     links:
       - db:db
-  db:
-    image: mariadb:10
-    environment:
-      - MYSQL_ROOT_PASSWORD='gitea'
-      - MYSQL_USER='gitea'
-      - MYSQL_PASSWORD='gitea'
-      - MYSQL_DATABASE='gitea'
 volumes:
   gitea-data:
     driver: rancher-nfs
@@ -23,11 +16,6 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/gitea-data
       onRemove: retain
-  gitea-db:
-    driver: rancher-nfs
-    driver_opts:
-      host: 172.16.4.6
-      export: /mnt/media/containers/gitea-db
 
 
 
