@@ -15,6 +15,8 @@ services:
     ports:
       - 8087:8000
       - 9000
+    depends_on:
+      - gitea
     volumes:
       - /var/lib/drone:/var/lib/drone/
     restart: always
@@ -25,6 +27,7 @@ services:
       - DRONE_ADMIN=singlis
       - DRONE_GITEA=true
       - DRONE_GITEA_URL=http://gitea.gitea:3000
+      - DRONE_GITEA_SKIP_VERIFY=true
       - DRONE_SECRET=abcd12345
   drone-agent:
     image: drone/agent
