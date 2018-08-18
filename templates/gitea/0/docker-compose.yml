@@ -2,11 +2,50 @@ version: '2'
 services:
   gitea:
     image: gitea/gitea:latest
+    restart: always
     ports:
       - 3000:3000
       - 2222:22
     volumes:
       - gitea-data:/data
+    environment:
+      - TZ="Australia/Brisbane"
+  drone-server:
+    image: drone/drone
+    ports:
+      - 8087:8000
+      - 9000
+    volumes:
+      - /var/lib/drone:/var/lib/drone/
+    restart: always
+    environment:
+      - TZ="Australia/Brisbane"
+      - DRONE_OPEN=true
+      - DRONE_HOST=http://172.16.4.16:8087
+      - DRONE_ADMIN=singlis
+      - DRONE_GITEA=true
+      - DRONE_GITEA_URL=http://gitea.gitea:3000
+      - DRONE_SECRET=abcd12345
+  drone-agent:
+    image: drone/agent
+    command: agent
+    restart: always
+    depends_on:
+      - drone-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ="Australia/Brisbane"
+      - DRONE_SERVER=gitea.drone-server:9000
+      - DRONE_SECRET=abcd12345
+
+
+
+
+
+
+
+
 volumes:
   gitea-data:
     driver: rancher-nfs
