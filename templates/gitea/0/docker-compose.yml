@@ -26,7 +26,7 @@ services:
       - DRONE_HOST=http://172.16.4.16:8087
       - DRONE_ADMIN=singlis
       - DRONE_GITEA=true
-      - DRONE_GITEA_URL=http://gitea.gitea:3000
+      - DRONE_GITEA_URL=http://gitea:3000
       - DRONE_GITEA_SKIP_VERIFY=true
       - DRONE_SECRET=abcd12345
   drone-agent:
@@ -39,7 +39,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - TZ="Australia/Brisbane"
-      - DRONE_SERVER=gitea.drone-server:9000
+      - DRONE_SERVER=http://drone-server:9000
       - DRONE_SECRET=abcd12345
 
 
