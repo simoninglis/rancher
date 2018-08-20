@@ -1,0 +1,34 @@
+version: '2'
+services:
+ smokeping:
+    image: linuxserver/smokeping
+    container_name: smokeping
+    environment:
+      - TZ=Australia/Brisbane
+      - PUID=1001
+      - PGID=1001
+    volumes:
+      - smokeping-config:/config
+      - smokeping-data:/data
+    ports:
+      - 8089:80
+    mem_limit: 4096m
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity: "vpn"
+volumes:
+  openvpn-config:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/openvpn-config
+      onRemove: retain
+  openvpn-data:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/openvpn-data
+      onRemove: retain
+
+

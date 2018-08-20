@@ -1,0 +1,7 @@
+name: SmokePing
+description: Smoke Ping
+version: 0
+category: Networking
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/smokeping

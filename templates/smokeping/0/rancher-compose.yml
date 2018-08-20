@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: SmokePing
+  version: latest
+  description: Smoke Ping Service 
+services:
+  smokeping:
+    scale: 1
+    start_on_create: true
