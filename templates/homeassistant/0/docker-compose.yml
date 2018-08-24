@@ -29,7 +29,7 @@ services:
       io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity: "ha"
       traefik.enable: 'true'
-      traefik.port: '80'
+      traefik.port: '8123'
       traefik.frontend.rule: 'Host:homeassistant.kellgari.local'
     network_mode: host
   appdaemon:
