@@ -33,9 +33,6 @@ services:
     image: acockburn/appdaemon:latest 
     environment:
       - TZ=Australia/Brisbane
-    ports:
-      - '1883:1833/tcp'
-      - '8883:8833/tcp'
     volumes:
       - homeassistant-appdaemon:/conf
     labels:
@@ -45,6 +42,9 @@ services:
     image: eclipse-mosquitto
     environment:
       - TZ=Australia/Brisbane
+    ports:
+      - '1883:1833/tcp'
+      - '8883:8833/tcp'
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
