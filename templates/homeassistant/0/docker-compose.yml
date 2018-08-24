@@ -28,6 +28,9 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity: "ha"
+      traefik.enable: 'true'
+      traefik.port: '80'
+      traefik.frontend.rule: 'Host:homeassistant.kellgari.local'
     network_mode: host
   appdaemon:
     image: acockburn/appdaemon:latest 
