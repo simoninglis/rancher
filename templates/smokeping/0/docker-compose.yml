@@ -16,7 +16,6 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity: "vpn"
       traefik.enable: 'true'
       traefik.port: '8089'
       traefik.domain: 'kellgari.local'
