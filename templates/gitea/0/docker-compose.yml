@@ -34,6 +34,11 @@ services:
       - DRONE_GITEA_URL=http://gitea:3000
       - DRONE_GITEA_SKIP_VERIFY=true
       - DRONE_SECRET=abcd12345
+    labels:
+      traefik.enable: 'true'
+      traefik.port: '8087'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:drone,drone.kellgari.local'
   drone-agent:
     image: drone/agent
     command: agent
