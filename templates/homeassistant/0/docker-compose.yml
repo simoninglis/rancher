@@ -62,4 +62,5 @@ volumes:
     driver_opts:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-appdaemon
+      onRemove: retain
 
