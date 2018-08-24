@@ -15,6 +15,9 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8989'
+      traefik.frontend.rule: 'Host:sonarr,sonarr.kellgari.local'
 volumes:
   sonarr-config:
     driver: rancher-nfs
