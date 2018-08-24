@@ -22,8 +22,8 @@ services:
       - influx-data:/var/lib/influx
 volumes:
   influx-data:
+     driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/influx-data
        host: 172.16.4.6
        onRemove: retain
-     driver: rancher-nfs
