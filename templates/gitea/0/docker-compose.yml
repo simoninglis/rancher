@@ -10,6 +10,11 @@ services:
       - gitea-data:/data
     environment:
       - TZ="Australia/Brisbane"
+    labels:
+      traefik.enable: 'true'
+      traefik.port: '3000'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:gitea,gitea.kellgari.local'
   drone-server:
     image: drone/drone
     ports:
