@@ -28,6 +28,10 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity: "ha"
+      traefik.enable: 'true'
+      traefik.port: '8123'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:homeassistant,homeassistant.kellgari.local'
     network_mode: host
   appdaemon:
     image: acockburn/appdaemon:latest 
@@ -38,8 +42,18 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+  mqtt:
+    image: eclipse-mosquitto
+    environment:
+      - TZ=Australia/Brisbane
+    ports:
+      - '1883:1833/tcp'
+      - '8883:8833/tcp'
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity: "ha"
-
+    network_mode: host
 volumes:
   homeassistant-config:
     driver: rancher-nfs
@@ -52,4 +66,5 @@ volumes:
     driver_opts:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-appdaemon
+      onRemove: retain
 

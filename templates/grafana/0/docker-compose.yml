@@ -17,6 +17,11 @@ services:
       - INFLUXDB_IS_GRAFANADB=true
     volumes:
       - grafana-config:/var/lib/grafana
+    labels:
+      traefik.enable: 'true'
+      traefik.port: '3000'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:grafana,grafana.kellgari.local'
 volumes:
   grafana-config:
      driver_opts:
