@@ -19,7 +19,7 @@ services:
       - INFLUX_USER=user
       - INFLUX_USER_PASSWORD=user
     volumes:
-      - influx-data:/var/lib/influx
+      - influx-data:/var/lib/influxdb
 volumes:
   influx-data:
      driver_opts:
