@@ -1,0 +1,32 @@
+version: '2'
+services:
+  alerta:
+    image: alerta/alerta-web
+    ports:
+      - "8090:8080"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1  # remove this line to turn DEBUG off
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/monitoring
+      - AUTH_REQUIRED=True
+      - ADMIN_USERS=admin@alerta.io,devops@alerta.io
+      - PLUGINS=reject,blackout,normalise,enhance
+      - INSTALL_PLUGINS=normalise,enhance
+    restart: always
+  db:
+    image: postgres
+    volumes:
+      - ./alerta-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: monitoring
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: always
+volumes:
+  alerta-data:
+     driver: rancher-nfs
+     driver_opts:
+       export: /mnt/media/containers/alerta-data
+       host: 172.16.4.6
+       onRemove: retain
