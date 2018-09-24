@@ -55,7 +55,7 @@ services:
       io.rancher.scheduler.affinity:host_label: "ha=yes"
     network_mode: host
   node-red:
-    image: nodered/node-red-docker
+      image: nodered/node-red-docker:v8
     environment:
       - TZ=Australia/Brisbane
     ports:
