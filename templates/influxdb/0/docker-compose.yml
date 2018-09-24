@@ -6,6 +6,8 @@ services:
       - "8083:8083"
       - "8086:8086"
       - "8090:8090"
+      - "4242:4242"
+      - "2003:2003"
     environment:
       - TZ="Australia/Brisbane"
       - INFLUXDB_ADMIN_USER=true
@@ -19,7 +21,7 @@ services:
       - INFLUX_USER=user
       - INFLUX_USER_PASSWORD=user
     volumes:
-      - influx-data:/var/lib/influx
+      - influx-data:/var/lib/influxdb
 volumes:
   influx-data:
      driver: rancher-nfs
