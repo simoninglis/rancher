@@ -27,7 +27,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity: "ha"
+      io.rancher.scheduler.affinity:host_label: "ha=yes"
       traefik.enable: 'true'
       traefik.port: '8123'
       traefik.domain: 'kellgari.local'
@@ -52,8 +52,23 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity: "ha"
+      io.rancher.scheduler.affinity:host_label: "ha=yes"
     network_mode: host
+  node-red:
+    image: nodered/node-red-docker
+    environment:
+      - TZ=Australia/Brisbane
+    ports:
+      - '1880:1880/tcp'
+    volumes:
+      - homeassistant-nodered:/data
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '1880'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:node-red,node-red.kellgari.local'
 volumes:
   homeassistant-config:
     driver: rancher-nfs
@@ -67,4 +82,9 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-appdaemon
       onRemove: retain
+  homeassistant-nodered:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/homeassistant-nodered
 
