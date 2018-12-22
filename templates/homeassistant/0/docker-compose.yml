@@ -22,7 +22,7 @@ services:
     devices:
       - "/dev/ttyACM0:/dev/ttyACM0"
       - "/dev/ttyACM1:/dev/ttyACM1"
-      - "/dev/ttyACM2:/dev/ttyACM2"
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
     volumes:
       - homeassistant-config:/config
     labels:
