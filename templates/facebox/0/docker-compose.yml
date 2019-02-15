@@ -4,13 +4,13 @@ services:
     image: machinebox/facebox
     restart: always
     ports:
-      - 8081:8080
+      - 8089:8080
     environment:
       - TZ="Australia/Brisbane"
       - MB_KEY=${MB_KEY}
     labels:
       traefik.enable: 'true'
-      traefik.port: '8081'
+      traefik.port: '8089'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:facebox,facebox.kellgari.local'
 
