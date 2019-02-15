@@ -38,7 +38,7 @@ services:
       traefik.enable: 'true'
       traefik.port: '8081'
       traefik.domain: 'kellgari.local'
-      traefik.frontend.rule: 'Host:unifi,unifi.kellgari.local'
+      traefik.frontend.rule: 'Host:unms,unms.kellgari.local'
 volumes:
   unifi-data:
      driver_opts:
