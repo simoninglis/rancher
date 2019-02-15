@@ -1,0 +1,18 @@
+version: '2'
+services:
+  gitea:
+    image: machinebox/facebox
+    restart: always
+    ports:
+      - 8081:8080
+    volumes:
+      - gitea-data:/data
+    environment:
+      - TZ="Australia/Brisbane"
+      - MB_KEY=${MB_KEY}
+    labels:
+      traefik.enable: 'true'
+      traefik.port: '8081'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:facebox,facebox.kellgari.local'
+

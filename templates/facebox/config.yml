@@ -1,0 +1,7 @@
+name: Facebox
+description: Facebox machine learning
+version: 0
+category: Development
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/facebox
