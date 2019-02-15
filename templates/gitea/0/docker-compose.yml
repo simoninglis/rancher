@@ -15,50 +15,6 @@ services:
       traefik.port: '3000'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:gitea,gitea.kellgari.local'
-  drone-server:
-    image: drone/drone
-    ports:
-      - 8087:8000
-      - 9000
-    depends_on:
-      - gitea
-    volumes:
-      - /var/lib/drone:/var/lib/drone/
-    restart: always
-    environment:
-      - TZ="Australia/Brisbane"
-      - DRONE_OPEN=true
-      - DRONE_HOST=http://172.16.4.16:8087
-      - DRONE_ADMIN=singlis
-      - DRONE_GITEA=true
-      - DRONE_GITEA_URL=http://gitea:3000
-      - DRONE_GITEA_SKIP_VERIFY=true
-      - DRONE_SECRET=abcd12345
-    labels:
-      traefik.enable: 'true'
-      traefik.port: '8087'
-      traefik.domain: 'kellgari.local'
-      traefik.frontend.rule: 'Host:drone,drone.kellgari.local'
-  drone-agent:
-    image: drone/agent
-    command: agent
-    restart: always
-    depends_on:
-      - drone-server
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - TZ="Australia/Brisbane"
-      - DRONE_SERVER=drone-server:9000
-      - DRONE_SECRET=abcd12345
-
-
-
-
-
-
-
-
 volumes:
   gitea-data:
     driver: rancher-nfs
