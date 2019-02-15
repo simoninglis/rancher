@@ -3,7 +3,7 @@ version: '2'
   name: Facebox
   version: latest
   description: Facebox face recognition
-   questions:
+  questions:
     - variable: "MB_KEY"
       label: "Machine Box key"
       description: ""
