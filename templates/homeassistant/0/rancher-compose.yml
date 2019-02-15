@@ -7,10 +7,10 @@ services:
   homeassistant:
     scale: 1
     start_on_create: true
-  appdaemon:
+  mqtt:
     scale: 1
     start_on_create: true
-  mqtt:
+  node-red:
     scale: 1
     start_on_create: true
 

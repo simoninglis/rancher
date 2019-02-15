@@ -34,15 +34,6 @@ services:
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:homeassistant,homeassistant.kellgari.local'
     network_mode: host
-  appdaemon:
-    image: acockburn/appdaemon:latest 
-    environment:
-      - TZ=Australia/Brisbane
-    volumes:
-      - homeassistant-appdaemon:/conf
-    labels:
-      io.rancher.container.pull_image: always
-      io.rancher.container.dns: 'true'
   mqtt:
     image: eclipse-mosquitto
     environment:
@@ -77,15 +68,8 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-config
       onRemove: retain
-  homeassistant-appdaemon:
-    driver: rancher-nfs
-    driver_opts:
-      host: 172.16.4.6
-      export: /mnt/media/containers/homeassistant-appdaemon
-      onRemove: retain
   homeassistant-nodered:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-nodered
-
