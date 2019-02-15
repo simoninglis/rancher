@@ -14,6 +14,13 @@ services:
       - TZ="Australia/Brisbane"
     volumes:
       - unifi-data:/unifi
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8080'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:unifi,unifi.kellgari.local'
   unms:
     image: oznu/unms:latest  
     restart: always
@@ -25,6 +32,13 @@ services:
       - PUBLIC_HTTPS_PORT=8444
       - PUBLIC_WS_PORT=8444
       - SECURE_LINK_SECRET=cUeWqR3u3Wi7lJRTokahEjpG
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8081'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:unifi,unifi.kellgari.local'
 volumes:
   unifi-data:
      driver_opts:
