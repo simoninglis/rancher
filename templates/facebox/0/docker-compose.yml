@@ -1,12 +1,10 @@
 version: '2'
 services:
-  gitea:
+  facebox:
     image: machinebox/facebox
     restart: always
     ports:
       - 8081:8080
-    volumes:
-      - gitea-data:/data
     environment:
       - TZ="Australia/Brisbane"
       - MB_KEY=${MB_KEY}
