@@ -23,7 +23,7 @@ services:
     health_check:
       healthy_threshold: 1
       response_timeout: 2000
-      port: 3000
+      port: ${MB_PORT}
       unhealthy_threshold: 2
       interval: 2000
       strategy: recreate
