@@ -4,10 +4,11 @@ services:
     image: machinebox/facebox
     restart: always
     ports:
-      - 8089:8080
+      - ${MB_PORT}:${MB_PORT}
     environment:
       - TZ="Australia/Brisbane"
       - MB_KEY=${MB_KEY}
+      - MB_PORT=${MB_PORT}
     labels:
       traefik.enable: 'true'
       traefik.port: '8089'

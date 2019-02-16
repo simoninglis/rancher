@@ -10,6 +10,12 @@ version: '2'
       default: ""
       required: true
       type: "string"
+    - variable: "MB_PORT"
+      label: "Port"
+      description: "Port to listen on"
+      default: "8089"
+      required: true
+      type: "int"
 services:
   facebox:
     scale: 1
