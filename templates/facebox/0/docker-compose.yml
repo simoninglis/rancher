@@ -11,7 +11,7 @@ services:
       - MB_PORT=${MB_PORT}
     labels:
       traefik.enable: 'true'
-      traefik.port: '8089'
+      traefik.port: ${MB_PORT}
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:facebox,facebox.kellgari.local'
 
