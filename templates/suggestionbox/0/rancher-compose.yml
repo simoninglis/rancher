@@ -1,0 +1,29 @@
+version: '2'
+.catalog:
+  name: Facebox
+  version: latest
+  description: Facebox face recognition
+  questions:
+    - variable: "MB_KEY"
+      label: "Machine Box key"
+      description: ""
+      default: ""
+      required: true
+      type: "string"
+    - variable: "MB_PORT"
+      label: "Port"
+      description: "Port to listen on"
+      default: "8089"
+      required: true
+      type: "int"
+services:
+  suggestionbox:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 1
+      response_timeout: 2000
+      port: ${MB_PORT}
+      unhealthy_threshold: 2
+      interval: 2000
+      strategy: recreate

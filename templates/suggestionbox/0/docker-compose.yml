@@ -1,0 +1,17 @@
+version: '2'
+services:
+  suggestionbox:
+    image: machinebox/suggestionbox
+    restart: always
+    ports:
+      - ${MB_PORT}:${MB_PORT}
+    environment:
+      - TZ="Australia/Brisbane"
+      - MB_KEY=${MB_KEY}
+      - MB_PORT=${MB_PORT}
+    labels:
+      traefik.enable: 'true'
+      traefik.port: ${MB_PORT}
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:suggestionbox,suggestionbox.kellgari.local'
+
