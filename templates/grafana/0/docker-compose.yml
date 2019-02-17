@@ -8,7 +8,7 @@ services:
       - TZ="Australia/Brisbane"
       - GRAFANA_USER=admin
       - GRAFANA_PASS=admin
-      - GF_INSTALL_PLUGINS=natel-discrete-panel"
+      - GF_INSTALL_PLUGINS=natel-discrete-panel
       - INFLUXDB_PROTO=http
       - INFLUXDB_HOST=${INFLUXDB_HOST}
       - INFLUXDB_PORT=8086
