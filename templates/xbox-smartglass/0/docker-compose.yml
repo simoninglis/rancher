@@ -1,6 +1,6 @@
 version: '2'
 services:
-  facebox:
+  xbox-smartglass:
     image: machinebox/facebox
     restart: always
     ports:

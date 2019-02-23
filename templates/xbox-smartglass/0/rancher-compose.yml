@@ -11,7 +11,7 @@ version: '2'
       required: true
       type: "int"
 services:
-  facebox:
+  xbox-smartglass:
     scale: 1
     start_on_create: true
     health_check:
