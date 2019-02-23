@@ -1,7 +1,7 @@
 version: '2'
 services:
   xbox-smartglass:
-    image: machinebox/facebox
+    image: openxbox/xbox-smartglass-rest
     restart: always
     ports:
       - ${XB_PORT}:5557
