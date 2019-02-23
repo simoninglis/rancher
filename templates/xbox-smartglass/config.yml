@@ -1,0 +1,7 @@
+name: Xbox Smartglass
+description: Smartglass REST server
+version: 0
+category: Development
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/xbox-smartglass

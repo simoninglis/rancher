@@ -1,0 +1,15 @@
+version: '2'
+services:
+  facebox:
+    image: machinebox/facebox
+    restart: always
+    ports:
+      - ${XB_PORT}:5557
+    environment:
+      - TZ="Australia/Brisbane"
+    labels:
+      traefik.enable: 'true'
+      traefik.port: ${XB_PORT}
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:xbox-smartglass,xbox-smartglass.kellgari.local'
+

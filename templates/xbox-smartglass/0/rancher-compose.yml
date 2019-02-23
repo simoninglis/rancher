@@ -1,0 +1,23 @@
+version: '2'
+.catalog:
+  name: Xbox Smartglass
+  version: latest
+  description: Xbox Smartglass REST server
+  questions:
+    - variable: "XB_PORT"
+      label: "Port"
+      description: "Port to listen on"
+      default: "5557"
+      required: true
+      type: "int"
+services:
+  facebox:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 1
+      response_timeout: 2000
+      port: ${XB_PORT}
+      unhealthy_threshold: 2
+      interval: 2000
+      strategy: recreate
