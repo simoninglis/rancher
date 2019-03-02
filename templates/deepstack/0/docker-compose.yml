@@ -1,0 +1,16 @@
+version: '2'
+services:
+  deepstack:
+    image: deepquestai/deepstack
+    restart: always
+    ports:
+      - ${DS_PORT}:5000
+    environment:
+      - TZ="Australia/Brisbane"
+      - VISION-DETECTION=True
+    labels:
+      traefik.enable: 'true'
+      traefik.port: ${DS_PORT}
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:deepstack,deepstack.kellgari.local'
+
