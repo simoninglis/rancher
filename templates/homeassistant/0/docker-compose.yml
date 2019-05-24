@@ -61,6 +61,18 @@ services:
       traefik.port: '1880'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:node-red,node-red.kellgari.local'
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt
+    environment:
+      - TZ=Australia/Brisbane
+    devices:
+      - "/dev/ttyACM3:/dev/ttyACM0"
+    volumes:
+      - zigbee2mqtt-data:/app/data
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "ha=yes"
 volumes:
   homeassistant-config:
     driver: rancher-nfs
@@ -73,3 +85,9 @@ volumes:
     driver_opts:
       host: 172.16.4.6
       export: /mnt/media/containers/homeassistant-nodered
+  zigbee2mqtt-data:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/homeassistant-zigbee2mqtt
+      onRemove: retain

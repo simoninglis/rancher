@@ -13,4 +13,7 @@ services:
   node-red:
     scale: 1
     start_on_create: true
+  zigbee2mqtt:
+    scale: 1
+    start_on_create: true
 
