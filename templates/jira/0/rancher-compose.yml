@@ -1,0 +1,19 @@
+version: '2'
+.catalog:
+  name: HomeAssistant
+  version: latest
+  description: Home automation 
+services:
+  homeassistant:
+    scale: 1
+    start_on_create: true
+  mqtt:
+    scale: 1
+    start_on_create: true
+  node-red:
+    scale: 1
+    start_on_create: true
+  zigbee2mqtt:
+    scale: 1
+    start_on_create: true
+

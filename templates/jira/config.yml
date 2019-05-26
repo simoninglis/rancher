@@ -1,0 +1,7 @@
+name: Jira
+description: Jira
+version: 0
+category: Business
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/jira

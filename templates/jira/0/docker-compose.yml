@@ -1,0 +1,27 @@
+version: '2'
+services:
+  jira-dev:
+    image: dchevell/jira-core
+    privileged: true
+    environment:
+      - TZ=Australia/Brisbane
+      - JVM_MINIMUM_MEMORY=384m
+    ports:
+      - '8080:8080/tcp'
+    volumes:
+      - jira-dev-data:/var/atlassian/application-data/jira
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8080'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:jira-dev,jira-dev.kellgari.local'
+    network_mode: host
+volumes:
+  jira-dev:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/jira-dev-data
+      onRemove: retain
