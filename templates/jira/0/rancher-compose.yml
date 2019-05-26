@@ -2,12 +2,12 @@ version: '2'
 .catalog:
   name: JIRA
   version: latest
-  description: Home automation 
+  description: Atlassian JIRA
 services:
   dev-jira:
     scale: 1
     start_on_create: true
   postgres:
     scale: 1
-    start_on_create: true
+    start_on_create: false
 
