@@ -1,6 +1,6 @@
 version: '2'
 services:
-  jira-dev:
+  dev-jira:
     image: dchevell/jira-core
     privileged: true
     environment:
@@ -9,7 +9,7 @@ services:
     ports:
       - '8080:8080/tcp'
     volumes:
-      - jira-dev-data:/var/atlassian/application-data/jira
+      - dev-jira-data:/var/atlassian/application-data/jira
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
@@ -19,9 +19,9 @@ services:
       traefik.frontend.rule: 'Host:jira-dev,jira-dev.kellgari.local'
     network_mode: host
 volumes:
-  jira-dev:
+  dev-jira:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
-      export: /mnt/media/containers/jira-dev-data
+      export: /mnt/media/containers/dev-jira-data
       onRemove: retain
