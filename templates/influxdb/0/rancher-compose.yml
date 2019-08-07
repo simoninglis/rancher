@@ -1,8 +1,8 @@
 version: '2'
 .catalog:
-  name: Influx DB
+  name: Influx DB and Telegraf
   version: v0.5
-  description: Influx timeseries database
+  description: Influx timeseries database and Telegraf monitoring
 services:
   influxdb:
     scale: 1
@@ -14,3 +14,6 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
+  telegrapf:
+    scale: 1
+    start_on_create: true

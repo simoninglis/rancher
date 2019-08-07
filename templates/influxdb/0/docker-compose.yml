@@ -29,10 +29,29 @@ services:
       traefik.port: '8086'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:influxdb,influxdb.kellgari.local'
+  telegraf:
+    image: telegraf:alpine
+    ports:
+      - "8125:8125"
+      - "8092:8092/udp"
+      - "8094:8094"
+    environment:
+      - TZ="Australia/Brisbane"
+    volumes:
+      - telegraf-config:/etc/telegraf
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
 volumes:
   influx-data:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/influx-data
+       host: 172.16.4.6
+       onRemove: retain
+  telegraf-config:
+     driver: rancher-nfs
+     driver_opts:
+       export: /mnt/media/containers/telegraf-config
        host: 172.16.4.6
        onRemove: retain
