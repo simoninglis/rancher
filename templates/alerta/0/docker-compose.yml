@@ -6,7 +6,6 @@ services:
       - "9010:8080"
     depends_on:
       - db
-      - alerta-config:/web/config.json
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
