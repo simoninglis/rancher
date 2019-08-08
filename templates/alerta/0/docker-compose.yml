@@ -15,7 +15,7 @@ services:
       traefik.frontend.rule: 'Host:alerta,alerta.kellgari.local'
     environment:
       - DEBUG=1 
-      - DATABASE_URL=mongodb://mongoadmin:admin@db:27017/monitoring
+      - DATABASE_URL=mongodb://db:27017/monitoring
       - AUTH_REQUIRED=True
       - ADMIN_USERS=admin@alerta.io,devops@alerta.io
       - PLUGINS=reject,blackout,normalise,enhance
@@ -23,9 +23,6 @@ services:
     restart: always
   db:
     image: mongo
-    environment:
-      MONGO_INIT_ROOT_USERNAME: mongoadmin
-      MONGO_INIT_ROOT_PASSWORD: admin
     restart: always
 volumes:
   alerta-config:
