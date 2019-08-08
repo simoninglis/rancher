@@ -4,7 +4,7 @@ version: '2'
   version: latest
   description: Alert dashboard
 services:
-  aleta:
+  alerta:
     scale: 1
     start_on_create: true
     health_check:
