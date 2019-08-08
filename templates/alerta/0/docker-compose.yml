@@ -15,7 +15,6 @@ services:
       traefik.port: '9010'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:alerta,alerta.kellgari.local'
-  telegraf:
     environment:
       - DEBUG=1 
       - DATABASE_URL=mongodb://mongoadmin:admin@db:27017/monitoring
