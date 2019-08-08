@@ -3,11 +3,19 @@ services:
   alerta:
     image: alerta/alerta-web
     ports:
-      - "8090:8080"
+      - "9010:8080"
     depends_on:
       - db
     volumes:
       - alerta-config:/web/config.json
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '9010'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:alerta,alerta.kellgari.local'
+  telegraf:
     environment:
       - DEBUG=1 
       - DATABASE_URL=mongodb://mongoadmin:admin@db:27017/monitoring
