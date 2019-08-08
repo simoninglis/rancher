@@ -6,24 +6,31 @@ services:
       - "8090:8080"
     depends_on:
       - db
+    volumes:
+      - alerta-config:/web/config.json
     environment:
       - DEBUG=1 
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/monitoring
+      - DATABASE_URL=mongodb://mongoadmin:admin@db:27017/monitoring
       - AUTH_REQUIRED=True
       - ADMIN_USERS=admin@alerta.io,devops@alerta.io
       - PLUGINS=reject,blackout,normalise,enhance
       - INSTALL_PLUGINS=normalise,enhance
     restart: always
   db:
-    image: postgres
+    image: mongo
     volumes:
-      - alerta-data:/var/lib/postgresql/data
+      - alerta-data:/data/db
     environment:
-      POSTGRES_DB: monitoring
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      MONGO_INIT_ROOT_USERNAME: mongoadmin
+      MONGO_INIT_ROOT_PASSWORD: admin
     restart: always
 volumes:
+  alerta-config:
+     driver: rancher-nfs
+     driver_opts:
+       export: /mnt/media/containers/alerta-config/config.json
+       host: 172.16.4.6
+       onRemove: retain
   alerta-data:
      driver: rancher-nfs
      driver_opts:
