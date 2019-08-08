@@ -6,6 +6,7 @@ services:
       - "9010:8080"
     depends_on:
       - db
+      - alerta-config:/web/config.json
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
@@ -31,7 +32,7 @@ volumes:
   alerta-config:
      driver: rancher-nfs
      driver_opts:
-       export: /mnt/media/containers/alerta-config/config.json
+       export: /mnt/media/containers/alerta-config
        host: 172.16.4.6
        onRemove: retain
   alerta-data:
