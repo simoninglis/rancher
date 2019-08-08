@@ -25,8 +25,6 @@ services:
     restart: always
   db:
     image: mongo
-    volumes:
-      - alerta-data:/data/db
     environment:
       MONGO_INIT_ROOT_USERNAME: mongoadmin
       MONGO_INIT_ROOT_PASSWORD: admin
