@@ -14,6 +14,6 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
-  telegrapf:
+  telegraf:
     scale: 1
     start_on_create: true
