@@ -28,7 +28,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity:host_label: "ha=yes"
+      io.rancher.scheduler.affinity:host_label: "ha=true"
       traefik.enable: 'true'
       traefik.port: '8123'
       traefik.domain: 'kellgari.local'
@@ -44,7 +44,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity:host_label: "ha=yes"
+      io.rancher.scheduler.affinity:host_label: "ha=true"
     network_mode: host
   node-red:
     image: nodered/node-red-docker:v8
@@ -72,7 +72,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity:host_label: "ha=yes"
+      io.rancher.scheduler.affinity:host_label: "ha=true"
 volumes:
   homeassistant-config:
     driver: rancher-nfs
