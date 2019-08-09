@@ -26,6 +26,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "influxdb=true"
       traefik.enable: 'true'
       traefik.port: '8086'
       traefik.domain: 'kellgari.local'
