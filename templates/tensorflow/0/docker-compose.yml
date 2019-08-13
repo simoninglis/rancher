@@ -1,0 +1,14 @@
+version: '2'
+services:
+  tensorflow:
+    image: tensorflow/tensorflow:jupyter
+    ports:
+      - "8888:8888"
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8888'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:tf,tf.kellgari.local'
+    restart: always
