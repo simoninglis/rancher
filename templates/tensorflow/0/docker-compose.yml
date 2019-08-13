@@ -1,7 +1,7 @@
 version: '2'
 services:
   tensorflow:
-    image: tensorflow/tensorflow:jupyter
+    image: tensorflow/tensorflow:latest-jupyter
     ports:
       - "8888:8888"
     labels:
