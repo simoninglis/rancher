@@ -14,3 +14,8 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
+  kapacitor:
+    scale: 1
+    start_on_create: true
+  chronograf:
+    scale: 1
