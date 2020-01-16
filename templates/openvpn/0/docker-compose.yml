@@ -15,7 +15,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
-      io.rancher.scheduler.affinity: "vpn"
+      io.rancher.scheduler.affinity:host_label:  "openvpn=true"
 volumes:
   openvpn-config:
     driver: rancher-nfs

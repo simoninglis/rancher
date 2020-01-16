@@ -1,0 +1,7 @@
+name: tensorflow
+description: Tensorflow
+version: 0
+category: ML
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/tensorflow

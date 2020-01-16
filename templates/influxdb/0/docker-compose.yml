@@ -8,6 +8,7 @@ services:
       - "8090:8090"
       - "4242:4242"
       - "2003:2003"
+      - "8089:8089/udp"
     environment:
       - TZ="Australia/Brisbane"
       - INFLUXDB_ADMIN_USER=true
@@ -25,6 +26,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "influxdb=true"
       traefik.enable: 'true'
       traefik.port: '8086'
       traefik.domain: 'kellgari.local'
@@ -46,7 +48,7 @@ services:
     environment:
       - TZ="Australia/Brisbane"
     volumes:
-      - chronograf-data:/var/lib/chronograf
+      - chronograf-config:/var/lib/chronograf
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
@@ -54,6 +56,20 @@ services:
       traefik.port: '8888'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:chronograf,chronograf.kellgari.local'
+  telegraf:
+    image: telegraf:alpine
+    ports:
+      - "8125:8125"
+      - "8092:8092/udp"
+      - "8094:8094"
+    environment:
+      - TZ="Australia/Brisbane"
+    volumes:
+      - telegraf-config:/etc/telegraf
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
 volumes:
   influx-data:
      driver: rancher-nfs
@@ -61,9 +77,13 @@ volumes:
        export: /mnt/media/containers/influx-data
        host: 172.16.4.6
        onRemove: retain
-  chronograf-data:
+  chronograf-config:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/chronograf-data
+  telegraf-config:
+     driver: rancher-nfs
+     driver_opts:
+       export: /mnt/media/containers/telegraf-config
        host: 172.16.4.6
        onRemove: retain

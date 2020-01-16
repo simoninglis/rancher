@@ -17,6 +17,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "unifi=true"
       traefik.enable: 'true'
       traefik.port: '8080'
       traefik.domain: 'kellgari.local'
@@ -35,6 +36,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "unms=true"
       traefik.enable: 'true'
       traefik.port: '8081'
       traefik.domain: 'kellgari.local'

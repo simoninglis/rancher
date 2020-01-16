@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: Tensorflow
+  version: latest
+  description: Tensorflow with jupyter
+services:
+  tensorflow:
+    scale: 1
+    start_on_create: true

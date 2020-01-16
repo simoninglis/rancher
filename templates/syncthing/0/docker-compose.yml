@@ -15,6 +15,11 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label: "syncthing=true"
+      traefik.enable: 'true'
+      traefik.port: '8384'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:syncthing,syncthing.kellgari.local'
 volumes:
   sync-config:
     driver: rancher-nfs
