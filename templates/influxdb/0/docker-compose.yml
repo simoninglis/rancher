@@ -80,7 +80,7 @@ volumes:
   chronograf-config:
      driver: rancher-nfs
      driver_opts:
-       export: /mnt/media/containers/chronograf-data
+       export: /mnt/media/containers/chronograf-config
        host: 172.16.4.6
        onRemove: retain
   telegraf-config:
