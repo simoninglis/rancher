@@ -14,14 +14,12 @@ services:
       unhealthy_threshold: 3
       interval: 2000
       strategy: recreate
-<<<<<<< HEAD
   kapacitor:
     scale: 1
     start_on_create: true
   chronograf:
     scale: 1
-=======
+    start_on_create: true
   telegraf:
     scale: 1
     start_on_create: true
->>>>>>> 9108c45bfc5c5ca4f2a5f0f949f5f0503a30103f
