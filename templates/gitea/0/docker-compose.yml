@@ -4,7 +4,7 @@ services:
     image: gitea/gitea:latest
     restart: always
     ports:
-      - 3000:3000
+      - 3001:3000
       - 2222:22
     volumes:
       - gitea-data:/data
