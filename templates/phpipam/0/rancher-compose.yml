@@ -1,0 +1,15 @@
+version: '2'
+.catalog:
+  name: phpIPAM
+  version: v0.1
+  description: IP Address Management Database
+services:
+  phpipam-web:
+    scale: 1
+    start_on_create: true
+  phpipam-cron:
+    scale: 1
+    start_on_create: true
+  phpipam-mariadb:
+    scale: 1
+    start_on_create: true
