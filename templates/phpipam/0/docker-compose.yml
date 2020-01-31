@@ -35,6 +35,7 @@ services:
     image: mariadb:latest
     environment:
       - MYSQL_ROOT_PASSWORD=my_secret_mysql_root_pass
+    user: nobody
     restart: unless-stopped
     volumes:
       - phpipam-data:/var/lib/mysql
