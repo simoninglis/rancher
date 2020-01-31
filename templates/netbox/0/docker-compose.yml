@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  netbox:
+    image: netboxcommunity/netbox:latest
+    ports:
+      - "8111:80"
+    environment:
+      - TZ=Australia/Brisbane
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8111'
+      traefik.domain: 'kellgari.local'
+    restart: unless-stopped
+
+volumes:
+  netbox-data:
+     driver: rancher-nfs
+     driver_opts:
+       export: /mnt/media/containers/netbox-data
+       host: 172.16.4.6
+       onRemove: retain

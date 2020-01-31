@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: NetBox
+  version: v0.1
+  description: IP Address Management Database
+services:
+  netbox:
+    scale: 1
+    start_on_create: true
