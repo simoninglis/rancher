@@ -1,0 +1,7 @@
+name: Grocy
+description: House ERP
+version: 0
+category: Organisation
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/grocy

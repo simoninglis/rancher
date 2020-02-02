@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: Grocy
+  version: v0.1
+  description: Household ERP
+services:
+  grocy:
+    scale: 1
+    start_on_create: true
