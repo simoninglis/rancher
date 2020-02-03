@@ -1,6 +1,6 @@
 version: "2"
 services:
-  grocy:
+  dokuwiki:
     image: linuxserver/dokuwiki
     container_name: dokuwiki
     environment:
