@@ -1,0 +1,29 @@
+version: "2"
+services:
+  grocy:
+    image: linuxserver/dokuwiki
+    container_name: dokuwiki
+    environment:
+      - PUID=65534
+      - PGID=65534
+      - TZ=Australia/Brisbane
+    volumes:
+      - dokuwiki-data:/config
+    ports:
+      - 9280:80
+      - 9680:443
+    restart: unless-stopped
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '9283'
+      traefik.frontend.rule: 'Host:dokuwiki,dokuwiki.kellgari.local'
+volumes:
+  grocy-data:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/dokuwiki-data
+      onRemove: retain
+
