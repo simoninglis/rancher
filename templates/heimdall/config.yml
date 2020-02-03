@@ -1,0 +1,7 @@
+name: Heimdall
+description: A front page for self hosting
+version: 0
+category: Organisation
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/heimdal
