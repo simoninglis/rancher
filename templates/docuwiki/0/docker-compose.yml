@@ -17,7 +17,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '9283'
+      traefik.port: '9280'
       traefik.frontend.rule: 'Host:dokuwiki,dokuwiki.kellgari.local'
 volumes:
   grocy-data:
