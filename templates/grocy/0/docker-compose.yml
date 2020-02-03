@@ -4,8 +4,8 @@ services:
     image: linuxserver/grocy
     container_name: grocy
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=65534
+      - PGID=65534
       - TZ=Australia/Brisbane
     volumes:
       - grocy-data:/config
