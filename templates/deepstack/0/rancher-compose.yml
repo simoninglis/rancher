@@ -3,13 +3,6 @@ version: '2'
   name: DeepStack
   version: latest
   description: DeepStack object recognition
-  questions:
-    - variable: "DS_PORT"
-      label: "Port"
-      description: "Port to listen on"
-      default: "8091"
-      required: true
-      type: "int"
 services:
   deepstack:
     scale: 1
