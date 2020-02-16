@@ -20,7 +20,7 @@ services:
       traefik.port: '7280'
       traefik.frontend.rule: 'Host:heimdall,hiemdall.kellgari.local'
 volumes:
-  grocy-data:
+  hemidall-data:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
