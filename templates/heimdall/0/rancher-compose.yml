@@ -1,9 +1,9 @@
 version: '2'
 .catalog:
   name: Heimdall
-  version: v0.2
+  version: v0.3
   description: A self hosted front page
 services:
-  dokuwiki:
+  heimdall:
     scale: 1
     start_on_create: true
