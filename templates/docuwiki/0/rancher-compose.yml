@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Dokuwiki
-  version: v0.3
+  version: v0.4
   description: A wiki stack
 services:
   dokuwiki:
