@@ -11,8 +11,6 @@ services:
       - DB_USER=wikijs
       - DB_PASS=wikijs
       - DB_NAME=wiki
-    volumes:
-      - wikijs-data:/var/lib/tiddlywiki
     ports:
       - 9480:3000
       - 9580:3443
@@ -23,7 +21,6 @@ services:
       traefik.enable: 'true'
       traefik.port: '9380'
       traefik.frontend.rule: 'Host:wikijs,wikijs.kellgari.local'
-      db:
   db:
     image: postgres:11-alpine
     container_name: db
