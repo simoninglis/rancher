@@ -7,7 +7,6 @@ services:
       - PUID=65534
       - PGID=65534
       - TZ=Australia/Brisbane
-    user: nobody
     volumes:
       - duplicati-data:/config
       - duplicati-backup:/backups
