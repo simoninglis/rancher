@@ -9,7 +9,7 @@ services:
       - TZ=Australia/Brisbane
     volumes:
       - duplicati-data:/config
-      - duplicati-backups:/backups
+      - duplicati-backup:/backups
       - duplicati-source:/source
     ports:
       - 7280:8200
@@ -27,11 +27,11 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/duplicati-data
       onRemove: retain
-  duplicati-backups:
+  duplicati-backup:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
-      export: /mnt/media/duplicati-backups
+      export: /mnt/media/duplicati-backup
       onRemove: retain
   duplicati-source:
     driver: rancher-nfs
