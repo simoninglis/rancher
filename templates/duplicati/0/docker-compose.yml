@@ -8,8 +8,6 @@ services:
       - PGID=65534
       - TZ=Australia/Brisbane
     user: nobody
-    group_add:
-      - nobody
     volumes:
       - duplicati-data:/config
       - duplicati-backup:/backups
