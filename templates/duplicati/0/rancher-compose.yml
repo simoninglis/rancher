@@ -1,8 +1,8 @@
 version: '2'
 .catalog:
   name: Duplicati
-  version: v0.4
-  description: A wiki stack
+  version: v0.5
+  description: A backup solution
 services:
   duplicati:
     scale: 1
