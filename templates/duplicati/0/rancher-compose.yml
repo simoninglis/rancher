@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Duplicati
-  version: v0.7
+  version: v0.8
   description: A backup solution
 services:
   duplicati:
