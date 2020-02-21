@@ -1,0 +1,15 @@
+version: '2'
+.catalog:
+  name: Graylog
+  version: v0.1
+  description: A centralised logging solution
+services:
+  mongo:
+    scale: 1
+    start_on_create: true
+  elasticsearch:
+    scale: 1
+    start_on_create: true
+  graylog:
+    scale: 1
+    start_on_create: true
