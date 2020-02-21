@@ -2,16 +2,10 @@ version: '2'
 services:
   mongodb:
     image: mongo:3
-    user: nobody
-    group_add:
-      - nobody
     volumes:
       - mongo-data:/data/db
   elasticsearch:
     image: elasticsearch:6.8.6
-    user: nobody
-    group_add:
-      - nobody
     volumes:
       - es-data:/usr/share/elasticsearch/data
     environment:
@@ -26,9 +20,6 @@ services:
     mem_limit: 1g
   graylog:
     image: graylog/graylog:3.2
-    user: nobody
-    group_add:
-      - nobody
     volumes:
       - graylog-data:/usr/share/graylog/data/journal
     environment:
