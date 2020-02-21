@@ -2,6 +2,9 @@ version: '2'
 services:
   mongodb:
     image: mongo:3
+    user: nobody
+    group_add:
+      - nobod
     volumes:
       - mongo-data:/data/db
   elasticsearch:
