@@ -4,7 +4,7 @@ services:
     image: mongo:3
     user: nobody
     group_add:
-      - nobody
+      - 65534
     volumes:
       - mongo-data:/data/db
   elasticsearch:
