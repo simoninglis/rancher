@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Grocy
-  version: v0.2
+  version: v0.3
   description: Household ERP
 services:
   grocy:
@@ -14,4 +14,3 @@ services:
       unhealthy_threshold: 3
       strategy: recreate
       response_timeout: 2000
-      request_line: GET "/" "HTTP/1.0"
