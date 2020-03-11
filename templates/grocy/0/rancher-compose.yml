@@ -1,13 +1,13 @@
 version: '2'
 .catalog:
   name: Grocy
-  version: v0.3
+  version: v0.4
   description: Household ERP
 services:
   grocy:
     scale: 1
     start_on_create: true
-    health-check:
+    health_check:
       port: 9283
       interval: 2000
       initializing_timeout: 60000
