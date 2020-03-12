@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Graylog
-  version: v0.6
+  version: v0.7
   description: A centralised logging solution
 services:
   mongodb:
