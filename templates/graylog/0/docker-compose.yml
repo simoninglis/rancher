@@ -54,6 +54,7 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+      io.rancher.scheduler.affinity:host_label:  "graylog=true"
       traefik.enable: 'true'
       traefik.port: '6280'
       traefik.frontend.rule: 'Host:graylog,graylog.kellgari.local'
