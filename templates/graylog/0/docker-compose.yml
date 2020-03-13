@@ -46,7 +46,7 @@ services:
       # Edgerouter Syslog UDP
       - 1514:1514/udp
       # FreeNAS Syslog TCP
-      - 1545:1545
+      - 1515:1515
       # GELF TCP
       - 12201:12201
       # GELF UDP
