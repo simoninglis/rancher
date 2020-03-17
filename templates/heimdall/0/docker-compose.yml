@@ -17,8 +17,8 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '7280'
-      traefik.frontend.rule: 'Host:heimdall,hiemdall.kellgari.local'
+      traefik.port: '80'
+      traefik.frontend.rule: 'Host:hiemdall.kellgari.local'
 volumes:
   hemidall-data:
     driver: rancher-nfs
