@@ -19,7 +19,8 @@ services:
       io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity:host_label: "unifi=true"
       traefik.enable: 'true'
-      traefik.port: '8080'
+      traefik.port: '8443'
+      traefik.protocol: 'https'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:unifi,unifi.kellgari.local'
   unms:
@@ -38,7 +39,8 @@ services:
       io.rancher.container.dns: 'true'
       io.rancher.scheduler.affinity:host_label: "unms=true"
       traefik.enable: 'true'
-      traefik.port: '8081'
+      traefik.port: '443'
+      traefik.protocol: 'https'
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:unms,unms.kellgari.local'
 volumes:
