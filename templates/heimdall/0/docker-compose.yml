@@ -18,7 +18,7 @@ services:
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
       traefik.port: '80'
-      traefik.frontend.rule: 'Host:hiemdall.kellgari.local'
+      traefik.frontend.rule: 'Host:heimdall.kellgari.local'
 volumes:
   hemidall-data:
     driver: rancher-nfs
