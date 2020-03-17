@@ -16,7 +16,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '9283'
+      traefik.port: '80'
       traefik.frontend.rule: 'Host:grocy,grocy.kellgari.local'
       traefik.domain: 'kellgari.local'
 volumes:
