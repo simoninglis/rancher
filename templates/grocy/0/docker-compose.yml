@@ -18,6 +18,7 @@ services:
       traefik.enable: 'true'
       traefik.port: '9283'
       traefik.frontend.rule: 'Host:grocy,grocy.kellgari.local'
+      traefik.domain: 'kellgari.local'
 volumes:
   grocy-data:
     driver: rancher-nfs
