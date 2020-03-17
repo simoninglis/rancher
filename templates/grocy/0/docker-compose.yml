@@ -17,7 +17,6 @@ services:
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
       traefik.port: '9283'
-      traefik.basic.port: '9283'
       traefik.frontend.rule: 'Host:grocy,grocy.kellgari.local'
       traefik.domain: 'kellgari.local'
 volumes:
