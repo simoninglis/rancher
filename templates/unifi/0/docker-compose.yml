@@ -22,7 +22,7 @@ services:
       traefik.port: '8443'
       traefik.protocol: 'https'
       traefik.domain: 'kellgari.local'
-      traefik.frontend.rule: 'Host:unifi,unifi.kellgari.local'
+      traefik.frontend.rule: 'Host:unifi.kellgari.local'
   unms:
     image: oznu/unms:latest  
     restart: always
@@ -42,7 +42,7 @@ services:
       traefik.port: '443'
       traefik.protocol: 'https'
       traefik.domain: 'kellgari.local'
-      traefik.frontend.rule: 'Host:unms,unms.kellgari.local'
+      traefik.frontend.rule: 'Host:unms.kellgari.local'
 volumes:
   unifi-data:
      driver_opts:
