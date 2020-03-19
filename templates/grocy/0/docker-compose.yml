@@ -17,7 +17,8 @@ services:
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
       traefik.port: '80'
-      traefik.frontend.rule: 'Host:grocy,grocy.kellgari.local'
+      traefik.frontend.rule: 'Host:grocy.kellgari.local'
+      traefik.domain: 'kellgari.local'
   barcodebuddy:
     image: f0rc3/barcodebuddy-docker
     container_name: barcodebuddy
@@ -28,6 +29,8 @@ services:
     volumes:
       - barcodebuddy-data:/config
     ports:
+      traefik.frontend.rule: 'Host:barcodebuddy.kellgari.local'
+      traefik.domain: 'kellgari.local'
 volumes:
   grocy-data:
     driver: rancher-nfs

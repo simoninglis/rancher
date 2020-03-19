@@ -1,0 +1,7 @@
+name: Graylog
+description: Wiki
+version: 0
+category: System
+maintainer: Simon Inglis
+license: GPL
+projectURL: https://github.com/simoninglis/rancher/tree/master/templates/graylog

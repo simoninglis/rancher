@@ -1,0 +1,42 @@
+version: "2"
+services:
+  duplicati:
+    image: linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=65534
+      - PGID=65534
+      - TZ=Australia/Brisbane
+    volumes:
+      - duplicati-data:/config
+      - duplicati-backup:/backups
+      - duplicati-source:/source
+    ports:
+      - 7280:8200
+    restart: unless-stopped
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '7280'
+      traefik.frontend.rule: 'Host:duplicati,duplicati.kellgari.local'
+volumes:
+  duplicati-data:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/duplicati-data
+      onRemove: retain
+  duplicati-backup:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/duplicati-backup
+      onRemove: retain
+  duplicati-source:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers
+      onRemove: retain
+

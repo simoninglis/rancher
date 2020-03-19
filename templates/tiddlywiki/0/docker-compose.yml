@@ -1,29 +1,26 @@
 version: "2"
 services:
-  heimdall:
-    image: linuxserver/heimdall
-    container_name: heimdall
+  tiddlywiki:
+    image: mazzolino/tiddlywiki
+    container_name: tiddlywiki
     environment:
-      - PUID=65534
-      - PGID=65534
       - TZ=Australia/Brisbane
     volumes:
-      - heimdall-data:/config
+      - tiddlywiki-data:/var/lib/tiddlywiki
     ports:
-      - 7280:80
-      - 7680:443
+      - 9380:8080
     restart: unless-stopped
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '80'
-      traefik.frontend.rule: 'Host:heimdall.kellgari.local'
+      traefik.port: '9380'
+      traefik.frontend.rule: 'Host:tiddlywiki,tiddlywiki.kellgari.local'
 volumes:
-  hemidall-data:
+  tiddlywiki-data:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.4.6
-      export: /mnt/media/containers/heimdall-data
+      export: /mnt/media/containers/tiddlywiki-data
       onRemove: retain
 

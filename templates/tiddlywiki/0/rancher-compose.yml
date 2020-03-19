@@ -1,0 +1,9 @@
+version: '2'
+.catalog:
+  name: Tiddlywiki
+  version: v0.1
+  description: A wiki stack
+services:
+  tiddlywiki:
+    scale: 1
+    start_on_create: true
