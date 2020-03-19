@@ -16,8 +16,18 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '9283'
+      traefik.port: '80'
       traefik.frontend.rule: 'Host:grocy,grocy.kellgari.local'
+  barcodebuddy:
+    image: f0rc3/barcodebuddy-docker
+    container_name: barcodebuddy
+    environment:
+      - PUID=65534
+      - PGID=65534
+      - TZ=Australia/Brisbane
+    volumes:
+      - barcodebuddy-data:/config
+    ports:
 volumes:
   grocy-data:
     driver: rancher-nfs
@@ -25,4 +35,9 @@ volumes:
       host: 172.16.4.6
       export: /mnt/media/containers/grocy-data
       onRemove: retain
-
+  grocy-data:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.4.6
+      export: /mnt/media/containers/barcodebuddy-data
+      onRemove: retain
