@@ -20,7 +20,7 @@ services:
       traefik.frontend.rule: 'Host:grocy.kellgari.local'
       traefik.domain: 'kellgari.local'
   barcodebuddy:
-    image: f0rc3/barcodebuddy-docker
+    image: f0rc3/barcodebuddy-docker:v1
     container_name: barcodebuddy
     environment:
       - PUID=65534
