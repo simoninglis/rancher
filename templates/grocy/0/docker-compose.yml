@@ -29,6 +29,13 @@ services:
     volumes:
       - barcodebuddy-data:/config
     ports:
+      - 9284:80
+    restart: unless-stopped
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '80'
       traefik.frontend.rule: 'Host:barcodebuddy.kellgari.local'
       traefik.domain: 'kellgari.local'
 volumes:
