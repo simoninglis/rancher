@@ -19,7 +19,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '9480'
+      traefik.port: '3000'
       traefik.frontend.rule: 'Host:wikijs,wikijs.kellgari.local'
   db:
     image: postgres:11-alpine
