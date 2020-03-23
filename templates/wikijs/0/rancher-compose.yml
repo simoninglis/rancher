@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Tiddlywiki
-  version: 0.5
+  version: 0.6
   description: A wiki stack
 services:
   wikijs:
