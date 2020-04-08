@@ -6,7 +6,7 @@ services:
     ports:
       - "8111:80"
     environment:
-      - TZ=Europe/London
+      - TZ=Australia/Brisbane
       - IPAM_DATABASE_HOST=phpipam-mariadb
       - IPAM_DATABASE_PASS=root
       - IPAM_DATABASE_WEBHOST=%
@@ -14,7 +14,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '8111'
+      traefik.port: '80'
       traefik.domain: 'kellgari.local'
     restart: unless-stopped
     depends_on:
@@ -23,7 +23,7 @@ services:
   phpipam-cron:
     image: phpipam/phpipam-cron:latest
     environment:
-      - TZ=Europe/London
+      - TZ=Australia/Brisbane
       - IPAM_DATABASE_HOST=phpipam-mariadb
       - IPAM_DATABASE_PASS=my_secret_phpipam_pass
       - SCAN_INTERVAL=1h
@@ -34,6 +34,7 @@ services:
   phpipam-mariadb:
     image: mariadb:latest
     environment:
+      - TZ=Australia/Brisbane
       - MYSQL_ROOT_PASSWORD=root
     user: nobody
     restart: unless-stopped
