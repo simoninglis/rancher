@@ -11,7 +11,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
       traefik.enable: 'true'
-      traefik.port: '8111'
+      traefik.port: '80'
       traefik.domain: 'kellgari.local'
     restart: unless-stopped
 
