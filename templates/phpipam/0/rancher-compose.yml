@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: phpIPAM
-  version: v0.7
+  version: v0.8
   description: IP Address Management Database
 services:
   phpipam-web:
