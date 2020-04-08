@@ -8,7 +8,8 @@ services:
     environment:
       - TZ=Australia/Brisbane
       - IPAM_DATABASE_HOST=phpipam-mariadb
-      - IPAM_DATABASE_PASS=root
+      - IPAM_DATABASE_USER=phpipam
+      - IPAM_DATABASE_PASS=phpipam
       - IPAM_DATABASE_WEBHOST=%
     labels:
       io.rancher.container.pull_image: always
@@ -25,7 +26,8 @@ services:
     environment:
       - TZ=Australia/Brisbane
       - IPAM_DATABASE_HOST=phpipam-mariadb
-      - IPAM_DATABASE_PASS=my_secret_phpipam_pass
+      - IPAM_DATABASE_USER=phpipam
+      - IPAM_DATABASE_PASS=phpipam
       - SCAN_INTERVAL=1h
     restart: unless-stopped
     depends_on:
@@ -44,7 +46,7 @@ services:
       - 3306:3306
     restart: unless-stopped
     volumes:
-      - phpipam-data:/var/lib/mysql
+      - phpipam-data:/config
 
 volumes:
   phpipam-data:
