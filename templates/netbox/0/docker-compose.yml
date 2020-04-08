@@ -7,6 +7,7 @@ services:
       - "8111:80"
     environment:
       - TZ=Australia/Brisbane
+      - SECRET_KEY=abcdefg12345678
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
