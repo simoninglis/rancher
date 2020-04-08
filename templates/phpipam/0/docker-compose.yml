@@ -36,6 +36,8 @@ services:
     environment:
       - TZ=Australia/Brisbane
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=phpipam
+      - MYSQL_PASSWORD=phpipam
     user: nobody
     restart: unless-stopped
     volumes:
