@@ -42,7 +42,6 @@ services:
       - MYSQL_PASSWORD=phpipam
     ports:
       - 3306:3306
-    user: nobody
     restart: unless-stopped
     volumes:
       - phpipam-data:/var/lib/mysql
