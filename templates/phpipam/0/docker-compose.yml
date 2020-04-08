@@ -42,6 +42,7 @@ services:
       - TZ=Australia/Brisbane
       - MYSQL_USER=phpipam@%
       - MYSQL_PASSWORD=phpipam
+    user: nobody
     ports:
       - 3306:3306
     restart: unless-stopped
