@@ -36,8 +36,6 @@ services:
   phpipam-mariadb:
     image: linuxserver/mariadb
     environment:
-      - PUID=65534
-      - PGID=65534
       - MYSQL_ROOT_PASSWORD=root
       - TZ=Australia/Brisbane
       - MYSQL_USER=phpipam@%
