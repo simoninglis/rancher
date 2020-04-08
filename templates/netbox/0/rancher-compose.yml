@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: NetBox
-  version: v0.1
+  version: v0.2
   description: IP Address Management Database
 services:
   netbox:
