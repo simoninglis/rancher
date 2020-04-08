@@ -38,7 +38,7 @@ services:
       - PGID=65534
       - MYSQL_ROOT_PASSWORD=root
       - TZ=Australia/Brisbane
-      - MYSQL_USER=phpipam
+      - MYSQL_USER=phpipam@%
       - MYSQL_PASSWORD=phpipam
     ports:
       - 3306:3306
