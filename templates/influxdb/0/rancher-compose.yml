@@ -1,8 +1,8 @@
 version: '2'
 .catalog:
-  name: Influx DB and Telegraf
-  version: v0.7
-  description: Influx timeseries database and Telegraf monitoring
+  name: Influx DB, Telegraf, Grafana
+  version: v0.8
+  description: Influx timeseries database and Telegraf monitoring and Grafana for visulisation
 services:
   influxdb:
     scale: 1
@@ -21,5 +21,8 @@ services:
     scale: 1
     start_on_create: true
   telegraf:
+    scale: 1
+    start_on_create: true
+  grafana:
     scale: 1
     start_on_create: true
