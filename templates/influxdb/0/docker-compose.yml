@@ -70,6 +70,29 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.dns: 'true'
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ="Australia/Brisbane"
+      - GRAFANA_USER=admin
+      - GRAFANA_PASS=admin
+      - GF_INSTALL_PLUGINS=natel-discrete-panel,grafana-piechart-panel
+      - INFLUXDB_PROTO=http
+      - INFLUXDB_HOST=${INFLUXDB_HOST}
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_NAME=telegraf
+      - INFLUXDB_USER=root
+      - INFLUXDB_PASS=root
+      - INFLUXDB_IS_GRAFANADB=true
+    volumes:
+      - grafana-config:/var/lib/grafana
+    labels:
+      traefik.enable: 'true'
+      traefik.port: '3000'
+      traefik.domain: 'kellgari.local'
+      traefik.frontend.rule: 'Host:grafana,grafana.kellgari.local'
 volumes:
   influx-data:
      driver: rancher-nfs
@@ -89,3 +112,10 @@ volumes:
        export: /mnt/media/containers/telegraf-config
        host: 172.16.4.6
        onRemove: retain
+  grafana-config:
+     driver_opts:
+       export: /mnt/media/containers/grafana-config
+       host: 172.16.4.6
+       onRemove: retain
+     driver: rancher-nfs
+
