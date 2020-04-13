@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Grocy
-  version: v0.7
+  version: v0.8
   description: Household ERP
 services:
   grocy:
