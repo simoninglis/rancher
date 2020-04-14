@@ -13,7 +13,7 @@ services:
       - deepstack-data:/datastore
     labels:
       traefik.enable: 'true'
-      traefik.port: 7032
+      traefik.port: 5000
       traefik.domain: 'kellgari.local'
       traefik.frontend.rule: 'Host:deepstack,deepstack.kellgari.local'
 
