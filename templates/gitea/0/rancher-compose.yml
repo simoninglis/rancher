@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Gitea
-  version: 0.2
+  version: 0.3
   description: Gitea git hosting
 services:
   gitea:
