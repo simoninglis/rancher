@@ -10,6 +10,8 @@ services:
       - gitea-data:/data
     environment:
       - TZ="Australia/Brisbane"
+      - USER_UID=65534
+      - USER_GID=65534
     labels:
       traefik.enable: 'true'
       traefik.port: '3000'
