@@ -8,11 +8,8 @@ services:
       - 2222:22
     volumes:
       - gitea-data:/data
-    user: nobody
     environment:
       - TZ="Australia/Brisbane"
-      - USER_UID=65534
-      - USER_GID=65534
     labels:
       traefik.enable: 'true'
       traefik.port: '3000'
