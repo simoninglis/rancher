@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: HomeAssistant
-  version: latest
+  version: 0.10
   description: Home automation 
 services:
   homeassistant:
