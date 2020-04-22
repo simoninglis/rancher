@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Influx DB, Telegraf, Grafana
-  version: v0.11
+  version: v0.12
   description: Influx timeseries database and Telegraf monitoring and Grafana for visulisation
 services:
   influxdb:
