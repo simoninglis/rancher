@@ -37,7 +37,7 @@ services:
       - "9092:9092"
     environment:
       - TZ="Australia/Brisbane"
-      - KAPACITOR_HOSTNAME=kapacitor.kellgari.local
+      - KAPACITOR_HOSTNAME=kapacitor.influxdb
       - KAPACITOR_LOGLEVEL=INFO
       - KAPACITOR_REPORTING_ENABLED=false
       - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb.influxdb:8086
@@ -86,6 +86,7 @@ services:
       - INFLUXDB_USER=root
       - INFLUXDB_PASS=root
       - INFLUXDB_IS_GRAFANADB=true
+      - INFLUXDB_SUBSCRIBER_ENABLED=false
     volumes:
       - grafana-config:/var/lib/grafana
     labels:
