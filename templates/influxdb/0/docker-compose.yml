@@ -98,24 +98,24 @@ volumes:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/influx-data
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
   chronograf-config:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/chronograf-config
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
   telegraf-config:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/telegraf-config
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
   grafana-config:
      driver_opts:
        export: /mnt/media/containers/grafana-config
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
      driver: rancher-nfs
 
