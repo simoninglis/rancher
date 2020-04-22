@@ -40,7 +40,7 @@ services:
       - KAPACITOR_HOSTNAME=kapacitor.kellgari.local
       - KAPACITOR_LOGLEVEL=INFO
       - KAPACITOR_REPORTING_ENABLED=false
-      - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb:8086
+      - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb.influxdb:8086
   chronograf:
     image: chronograf:alpine
     ports:
@@ -80,7 +80,7 @@ services:
       - GRAFANA_PASS=admin
       - GF_INSTALL_PLUGINS=natel-discrete-panel,grafana-piechart-panel
       - INFLUXDB_PROTO=http
-      - INFLUXDB_HOST=${INFLUXDB_HOST}
+      - INFLUXDB_HOST=influxdb.influxdb
       - INFLUXDB_PORT=8086
       - INFLUXDB_NAME=telegraf
       - INFLUXDB_USER=root
