@@ -22,5 +22,5 @@ volumes:
      driver: rancher-nfs
      driver_opts:
        export: /mnt/media/containers/deepstack-data
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
