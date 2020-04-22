@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: DeepStack
-  version: latest
+  version: 0.1
   description: DeepStack object recognition
 services:
   deepstack:
