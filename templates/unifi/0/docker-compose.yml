@@ -47,6 +47,6 @@ volumes:
   unifi-data:
      driver_opts:
        export: /mnt/media/containers/unifi-data
-       host: 172.16.4.6
+       host: 10.0.100.10
        onRemove: retain
      driver: rancher-nfs
