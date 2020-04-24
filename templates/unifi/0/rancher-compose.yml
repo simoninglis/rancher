@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Unifi
-  version: v0.1
+  version: v0.2
   description: Unifi 
 services:
   unifi:
