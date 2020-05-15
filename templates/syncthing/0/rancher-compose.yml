@@ -1,7 +1,7 @@
-version: '3'
+version: '2'
 .catalog:
   name: Syncthing
-  version: v0.5
+  version: v0.6
   description: Syncthing file sync service
   questions:
     - variable: "SYNCTHING_UID"
