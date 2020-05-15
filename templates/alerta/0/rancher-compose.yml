@@ -1,7 +1,7 @@
 version: '2'
 .catalog:
   name: Alerta
-  version: latest
+  version: 0.2
   description: Alert dashboard
 services:
   alerta:
