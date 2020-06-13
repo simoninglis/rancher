@@ -18,3 +18,9 @@ services:
   sonarr:
     scale: 1
     start_on_create: true
+  radarr:
+    scale: 1
+    start_on_create: true
+  lidarr:
+    scale: 1
+    start_on_create: true

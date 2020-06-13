@@ -18,6 +18,42 @@ services:
       traefik.enable: 'true'
       traefik.port: '8989'
       traefik.frontend.rule: 'Host:sonarr,sonarr.kellgari.local'
+  radarr:
+    image: linuxserver/radarr
+    environment:
+      - TZ=Australia/Brisbane
+      - UID=${SONARR_UID}
+      - GID=${SONARR_GID}
+    ports:
+      - '7878:7878/tcp'
+    volumes:
+      - radarr-config:/config
+      - media-movies:/movies
+      - media-downloads:/downloads
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '7878'
+      traefik.frontend.rule: 'Host:radarr,radarr.kellgari.local'
+  lidarr:
+    image: linuxserver/lidarr
+    environment:
+      - TZ=Australia/Brisbane
+      - UID=${SONARR_UID}
+      - GID=${SONARR_GID}
+    ports:
+      - '6767:8686/tcp'
+    volumes:
+      - lidarr-config:/config
+      - media-music:/music
+      - media-downloads:/downloads
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.dns: 'true'
+      traefik.enable: 'true'
+      traefik.port: '8686'
+      traefik.frontend.rule: 'Host:lidarr,lidarr.kellgari.local'
 volumes:
   sonarr-config:
     driver: rancher-nfs
@@ -25,11 +61,33 @@ volumes:
       host: 10.0.100.10
       export: /mnt/media/containers/sonarr-config
       onRemove: retain
+  radarr-config:
+    driver: rancher-nfs
+    driver_opts:
+      host: 10.0.100.10
+      export: /mnt/media/containers/radarr-config
+  lidarr-config:
+    driver: rancher-nfs
+    driver_opts:
+      host: 10.0.100.10
+      export: /mnt/media/containers/lidarr-config
   media-tv:
     driver: rancher-nfs
     driver_opts:
       host: 10.0.100.10
       export: /mnt/media/media/TV
+      onRemove: retain
+  media-movies:
+    driver: rancher-nfs
+    driver_opts:
+      host: 10.0.100.10
+      export: /mnt/media/media/Movies
+      onRemove: retain
+  media-music:
+    driver: rancher-nfs
+    driver_opts:
+      host: 10.0.100.10
+      export: /mnt/media/media/Music
       onRemove: retain
   media-downloads:
     driver: rancher-nfs
