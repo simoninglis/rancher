@@ -28,12 +28,12 @@ volumes:
   alerta-config:
      driver: rancher-nfs
      driver_opts:
-       export: /mnt/media/containers/alerta-config
-       host: 10.0.100.10
+       export: /mnt/hera/containers/alerta-config
+       host: 10.0.100.20
        onRemove: retain
   alerta-data:
      driver: rancher-nfs
      driver_opts:
-       export: /mnt/media/containers/alerta-data
-       host: 10.0.100.10
+       export: /mnt/hera/containers/alerta-data
+       host: 10.0.100.20
        onRemove: retain

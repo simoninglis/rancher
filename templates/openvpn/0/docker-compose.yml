@@ -20,7 +20,7 @@ volumes:
   openvpn-config:
     driver: rancher-nfs
     driver_opts:
-      host: 172.16.4.6
-      export: /mnt/media/containers/openvpn-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/openvpn-config
       onRemove: retain
 

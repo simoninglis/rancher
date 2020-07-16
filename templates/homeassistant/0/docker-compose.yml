@@ -77,17 +77,17 @@ volumes:
   homeassistant-config:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/homeassistant-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/homeassistant-config
       onRemove: retain
   homeassistant-nodered:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/homeassistant-nodered
+      host: 10.0.100.20
+      export: /mnt/hera/containers/homeassistant-nodered
   zigbee2mqtt-data:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/homeassistant-zigbee2mqtt
+      host: 10.0.100.20
+      export: /mnt/hera/containers/homeassistant-zigbee2mqtt
       onRemove: retain

@@ -24,12 +24,12 @@ volumes:
   sync-config:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/sync-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/sync-config
       onRemove: retain
   media-downloads:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
+      host: 10.0.100.20
       export: /mnt/media/media/Downloads
 

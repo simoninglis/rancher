@@ -38,7 +38,7 @@ volumes:
   wikijs-data:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/wikijs-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/wikijs-data
       onRemove: retain
 

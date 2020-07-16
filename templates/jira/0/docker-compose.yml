@@ -37,12 +37,12 @@ volumes:
   dev-jira-data:
     driver: rancher-nfs
     driver_opts:
-      host: 172.16.4.6
-      export: /mnt/media/containers/dev-jira-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/dev-jira-data
       onRemove: retain
   postgres:
     driver: rancher-nfs
     driver_opts:
-      host: 172.16.4.6
-      export: /mnt/media/containers/dev-jira-postgres-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/dev-jira-postgres-data
       onRemove: retain

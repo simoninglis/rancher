@@ -63,19 +63,19 @@ volumes:
   mongo-data:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/graylog-mongo-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/graylog-mongo-data
       onRemove: retain
   es-data:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/graylog-es-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/graylog-es-data
       onRemove: retain
   graylog-data:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/graylog-data
+      host: 10.0.100.20
+      export: /mnt/hera/containers/graylog-data
       onRemove: retain
 

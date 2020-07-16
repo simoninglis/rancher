@@ -58,40 +58,40 @@ volumes:
   sonarr-config:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/sonarr-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/sonarr-config
       onRemove: retain
   radarr-config:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/radarr-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/radarr-config
   lidarr-config:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
-      export: /mnt/media/containers/lidarr-config
+      host: 10.0.100.20
+      export: /mnt/hera/containers/lidarr-config
   media-tv:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
+      host: 10.0.100.20
       export: /mnt/media/media/TV
       onRemove: retain
   media-movies:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
+      host: 10.0.100.20
       export: /mnt/media/media/Movies
       onRemove: retain
   media-music:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
+      host: 10.0.100.20
       export: /mnt/media/media/Music
       onRemove: retain
   media-downloads:
     driver: rancher-nfs
     driver_opts:
-      host: 10.0.100.10
+      host: 10.0.100.20
       export: /mnt/media/media/Downloads
 
